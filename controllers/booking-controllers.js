@@ -16,7 +16,7 @@ export const postBooking = async (req, res, next) => {
 
       const bookings = await newBooking.save(req.body)
 
-      res.status(201).json(bookings)
+      res.status(201).json('booking added successfully')
    } catch (error) {
       next(error);
 
