@@ -1,8 +1,10 @@
 import { booking } from "../models/booking-model.js";
 
 
-export const getAllbookings = (req, res,) => {
-   res.status(200).json('These are all bookings');
+export const getAllbookings = async (req, res,) => {
+   const book = await booking.find();
+
+   res.status(200).json(book);
 }
 
 export const getOneBooking = (req, res) => {
