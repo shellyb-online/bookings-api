@@ -1,5 +1,6 @@
 import express from 'express';
 import 'dotenv/config'
+import cors from 'cors'
 import mongoose from 'mongoose';
 import { bookingRouter } from './routes/all-routes.js';
 
@@ -9,9 +10,15 @@ await mongoose.connect(process.env.MONGO_URL)
 // create a server app
 const myapp = express();
 
-// Define routes 
+// // use middlewares
+// app.use(express.json());
+
+
+// Define routes
+myapp.use(cors()) 
 myapp.use(express.json());
 myapp.use(bookingRouter);
+
 
 // listen to server
 myapp.listen(3001,function () {
